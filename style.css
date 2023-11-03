@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+button {
+  padding: 10px;
+  font-size: 2rem;
+  border: none;
+  background-color: blue;
+  color: white;
+}
+
+
