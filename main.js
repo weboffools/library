@@ -22,23 +22,7 @@ bookForm.addEventListener('submit', (e) => {
 
 });
 
-let books = [
-  {
-    title: "Republic",
-    author: "Plato",
-    pages: 512,
-  },
-  {
-    title: "Politics",
-    author: "Aristotle",
-    pages: 536,
-  },
-  {
-    title: "The Prince",
-    author: "Niccolo Machiavelli",
-    pages: 151,
-  },
-];
+let books = [];
 
 function addBooksToShelf() {
   shelf.replaceChildren();
@@ -103,6 +87,10 @@ function showForm() {
 function resetForm() {
   bookForm.reset();
 }
+
+addBookToLibrary("Republic", "Plato", "412", "read");
+addBookToLibrary("Politics", "Aristotle", "375", "read");
+addBookToLibrary("The Prince", "Machiavelli", "150", "read");
 
 addBooksToShelf();
 
