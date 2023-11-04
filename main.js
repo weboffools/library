@@ -115,4 +115,6 @@ addBookToLibrary("Politics", "Aristotle", "375", "read");
 addBookToLibrary("The Prince", "Machiavelli", "150", "read");
 
 addBooksToShelf();
+newBookEvent();
+submitFormEvent();
 
