@@ -29,7 +29,8 @@ function submitFormEvent() {
 function removeBookEvent(btn) {
   btn.addEventListener('click', (e) => {
     let i = e.target.parentElement.dataset.indexNumber;
-    removeBook(i);
+    let book = e.target.parentElement;
+    removeBook(book, i);
   });
 }
 
@@ -102,8 +103,10 @@ function resetForm() {
   bookForm.reset();
 }
 
-function removeBook(i) {
+function removeBook(book, i) {
   books.splice(i);
+  shelf.removeChild(book);
+  
 }
 
 
