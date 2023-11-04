@@ -26,6 +26,13 @@ function submitFormEvent() {
   });
 }
 
+function removeBookEvent(btn) {
+  btn.addEventListener('click', (e) => {
+    console.log(e.target.parentElement.dataset.indexNumber);
+  });
+}
+
+
 
 let books = [];
 
@@ -50,6 +57,7 @@ function addBooksToShelf() {
     let removeBtn = document.createElement('button');
     removeBtn.setAttribute('class', 'remove');
     removeBtn.textContent = "R";
+    removeBookEvent(removeBtn);
 
     bookDiv.appendChild(title);
     bookDiv.appendChild(author);
