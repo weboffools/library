@@ -18,7 +18,7 @@ bookForm.addEventListener('submit', (e) => {
   let read = e.target.have_read.value;
 
   addBookToLibrary(title, author, pages, read);
-  addBooksToShelf();
+  addBookToShelf(books[books.length - 1]);
 
 });
 
@@ -40,8 +40,7 @@ let books = [
   },
 ];
 
-function addBooksToShelf() {
-  shelf.replaceChildren();
+function initShelf() {
   for (let book of books) {
     let bookDiv = document.createElement("div");
     let bookWidth = getWidth(book);
@@ -59,6 +58,24 @@ function addBooksToShelf() {
     shelf.appendChild(bookDiv);
   }
 }
+
+function addBookToShelf(book) {
+    let bookDiv = document.createElement("div");
+    let bookWidth = getWidth(book);
+    bookDiv.setAttribute("class", "book");
+    bookDiv.setAttribute("style", `background: ${getRandomRGB()}; width: ${bookWidth}px`);
+    let title = document.createElement("h3");
+    title.setAttribute("class", "title");
+    title.textContent = book.title;
+    let author = document.createElement("h5");
+    author.setAttribute("class", "author");
+    author.setAttribute("style", `width: ${bookWidth}px`);
+    author.textContent = book.author;
+    bookDiv.appendChild(title);
+    bookDiv.appendChild(author);
+    shelf.appendChild(bookDiv);
+}
+
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -95,5 +112,5 @@ function resetForm() {
   bookForm.reset();
 }
 
-addBooksToShelf()
+initShelf()
 
