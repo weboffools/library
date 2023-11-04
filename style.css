@@ -6,6 +6,7 @@
 .container {
   height: 100vh;
   display: grid;
+  grid-template-columns: 3fr 1fr;
   justify-items: center;
   align-items: center;
 }
@@ -14,34 +15,53 @@ button {
   padding: 10px;
   font-size: 2rem;
   border: none;
-  background-color: blue;
-  color: white;
-}
-
-.bookshelf {
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  border: 4px solid burlywood;
-  width: 400px;
-  height: 600px;
-  outline: 2px solid brown;
-  
+  border-radius: 10px;
+  background-color: skyblue;
+  color: black;
 }
 
 .shelf {
   display: grid;
+  grid-column: 1 / 2;
+  justify-content: start;
   grid-template-rows: 1fr;
-  grid-template-columns: repeat(15, 1fr);
+  grid-auto-flow: column;
   background-color: antiquewhite;
-  border: 2px solid brown;
+  border: 6px solid brown;
   gap: 3px;
+  width: 800px;
+  height: 300px;
 }
 
 .book {
-  background: skyblue;
-  border: 1px solid red;
-  width: 20px;
-  writing-mode: vertical-lr;
-  text-orientation: upright;
-
+  display: grid;
+  font-size: 1.5rem;
+  align-items: center;
+  color: black;
+  padding: 2px;
+  height: 297px;
 }
+
+.book h3 {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.25rem;
+  writing-mode: vertical-rl;
+}
+
+.book h5 {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 0.75rem;
+  writing-mode: vertical-rl;
+}
+
+.sidebar {
+  display: grid;
+}
+
