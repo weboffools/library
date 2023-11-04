@@ -83,5 +83,6 @@ fieldset {
 
 #submit-form {
   border: none;
-  padding: 3px;
+  padding: 8px;
+  font-size: 1.3rem;
 }
