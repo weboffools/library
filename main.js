@@ -1,26 +1,54 @@
-const btn = document.querySelector('button')
-const shelf1 = document.querySelector('.s-1')
-const shelf2 = document.querySelector('.s-2')
-const shelf3 = document.querySelector('.s-3')
+const btn = document.querySelector("button");
+const shelf = document.querySelector(".shelf");
+const bookForm = document.querySelector("#book-form");
 
+btn.addEventListener('click', () => {
+  showForm();
+});
+
+bookForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  for (val of e.target) {
+    console.log(val.name + ": " + val.value);
+  }
+});
 
 let books = [
   {
-    title: 'Republic',
-    author: 'Plato',
-    pages: 489
+    title: "Republic",
+    author: "Plato",
+    pages: 512,
   },
   {
-    title: 'Politics',
-    author: 'Aristotle',
-    pages: 298
+    title: "Politics",
+    author: "Aristotle",
+    pages: 536,
   },
   {
-    title: 'The Prince',
-    author: 'Machiavelli',
-    pages: 222
+    title: "The Prince",
+    author: "Niccolo Machiavelli",
+    pages: 151,
+  },
+];
+
+function addBooksToShelf() {
+  for (let book of books) {
+    let bookDiv = document.createElement("div");
+    let bookWidth = getWidth(book);
+    bookDiv.setAttribute("class", "book");
+    bookDiv.setAttribute("style", `background: ${getRandomRGB()}; width: ${bookWidth}px`);
+    let title = document.createElement("h3");
+    title.setAttribute("class", "title");
+    title.textContent = book.title;
+    let author = document.createElement("h5");
+    author.setAttribute("class", "author");
+    author.setAttribute("style", `width: ${bookWidth}px`);
+    author.textContent = book.author;
+    bookDiv.appendChild(title);
+    bookDiv.appendChild(author);
+    shelf.appendChild(bookDiv);
   }
-]
+}
 
 function Book(title, author, pages) {
   this.title = title;
@@ -29,12 +57,28 @@ function Book(title, author, pages) {
 }
 
 function addBookToLibrary() {
- for (const book of books) {
-   let bookDiv = document.createElement('div');
-   bookDiv.setAttribute('class', 'book');
-   bookDiv.textContent = book.title;
-   shelf1.appendChild(bookDiv);
- }
+  let book = new Book();
+  books.push(book);
+}
+
+function getRandomRGB() {
+  let red = Math.floor(Math.random() * 256);
+  let green = Math.floor(Math.random() * 256);
+  let blue = Math.floor(Math.random() * 256);
+
+  return `rgb(${red}, ${green}, ${blue})`;
+}
+
+function getWidth(book) {
+  let pages = book.pages;
+  return String(Math.floor((pages / 100) * 15));
 }
 
 
+function showForm() {
+  let bookForm = document.querySelector("#book-form");
+  bookForm.removeAttribute("hidden");
+
+}
+
+addBooksToShelf()
