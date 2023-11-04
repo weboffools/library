@@ -1,9 +1,13 @@
-const btn = document.querySelector("button");
+const btn = document.querySelector("#newbook");
 const shelf = document.querySelector(".shelf");
 const bookForm = document.querySelector("#book-form");
 
 btn.addEventListener('click', () => {
-  showForm();
+  if (bookForm.getAttribute('hidden') === '') {
+    showForm();
+  } else {
+    resetForm();
+  }
 });
 
 bookForm.addEventListener('submit', (e) => {
@@ -87,4 +91,9 @@ function showForm() {
   bookForm.removeAttribute("hidden");
 }
 
+function resetForm() {
+  bookForm.reset();
+}
+
 addBooksToShelf()
+
