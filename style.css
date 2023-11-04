@@ -37,6 +37,7 @@
   align-items: center;
   color: black;
   padding: 2px;
+  height: 250px;
 }
 
 .book h3 {
@@ -52,7 +53,6 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  justify-content: center;
   flex-wrap: wrap;
   font-size: 0.75rem;
   writing-mode: vertical-rl;
