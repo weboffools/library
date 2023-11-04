@@ -8,9 +8,14 @@ btn.addEventListener('click', () => {
 
 bookForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  for (val of e.target) {
-    console.log(val.name + ": " + val.value);
-  }
+  let title = e.target.book_title.value;
+  let author = e.target.book_author.value;
+  let pages = e.target.book_pages.value;
+  let read = e.target.have_read.value;
+
+  addBookToLibrary(title, author, pages, read);
+  addBooksToShelf();
+
 });
 
 let books = [
@@ -32,6 +37,7 @@ let books = [
 ];
 
 function addBooksToShelf() {
+  shelf.replaceChildren();
   for (let book of books) {
     let bookDiv = document.createElement("div");
     let bookWidth = getWidth(book);
@@ -50,14 +56,15 @@ function addBooksToShelf() {
   }
 }
 
-function Book(title, author, pages) {
+function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
+  this.read = read;
 }
 
-function addBookToLibrary() {
-  let book = new Book();
+function addBookToLibrary(title, author, pages, read) {
+  let book = new Book(title, author, pages, read);
   books.push(book);
 }
 
