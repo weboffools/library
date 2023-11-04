@@ -62,6 +62,24 @@ button {
 }
 
 .sidebar {
-  display: grid;
+  padding: 10px;
 }
 
+form {
+  margin: 0 auto;
+  padding: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 1rem;
+}
+
+input {
+  padding: 3px;
+  border-radius: 5px;
+
+}
+
+fieldset {
+  display: flex;
+  padding: 1rem;
+  margin: 1rem;
+}

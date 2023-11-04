@@ -13,20 +13,33 @@
     <button id="newbook">New Book</button> 
     <form  method="get" id="book-form" hidden>
       <fieldset>
-<label for="book_author">Author</label>
-      <input name="book_author" id="book_author" type="text" />
-      <label for="title">Title</label>
-      <input name="book_title" id="book_title" type="text" />
-      <label for="book_pages">Number of Pages</label>
-      <input name="book_pages" id="book_pages" type="number" />
-</fieldset>      
+        <div>
+          <label for="book_author">Author</label>
+          <input name="book_author" id="book_author" type="text" />
+        </div>
+
+        <div>
+          <label for="title">Title</label>
+          <input name="book_title" id="book_title" type="text" />
+        </div>
+
+        <div>
+          <label for="book_pages">Number of Pages</label>
+          <input name="book_pages" id="book_pages" type="number" />
+        </div>
+
+      </fieldset>      
       <fieldset>
         <legend>Have You Read It?</legend>
-      <label for "have_read">Have Read</label>
-      <input name="have_read" id="have_read" type="radio" checked>
-      <label for"have_not_read">Have Not Read</label>
-      <input name="have_not_read" id="have_not_read" type="radio">
-</fieldset>
+        <div>
+              <label for="have_read">Have Read</label>
+              <input name="have_read" id="have_read" type="radio" value="read" />
+              <label for="have_not_read">Have Not Read</label>
+              <input name="have_read" id="have_not_read" type="radio" value="not_read" />
+        </div>
+
+      </fieldset>
+      <button type="submit">Submit</button>
     </form>
 
    </div>
