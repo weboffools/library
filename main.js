@@ -78,7 +78,6 @@ function getWidth(book) {
 function showForm() {
   let bookForm = document.querySelector("#book-form");
   bookForm.removeAttribute("hidden");
-
 }
 
 addBooksToShelf()
