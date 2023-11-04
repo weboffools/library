@@ -46,13 +46,21 @@ function initShelf() {
     let bookWidth = getWidth(book);
     bookDiv.setAttribute("class", "book");
     bookDiv.setAttribute("style", `background: ${getRandomRGB()}; width: ${bookWidth}px`);
+    bookDiv.setAttribute('data-index-number', books.indexOf(book));
+
     let title = document.createElement("h3");
     title.setAttribute("class", "title");
     title.textContent = book.title;
+
     let author = document.createElement("h5");
     author.setAttribute("class", "author");
     author.setAttribute("style", `width: ${bookWidth}px`);
     author.textContent = book.author;
+
+    let removeBtn = document.createElement('button');
+    removeBtn.setAttribute('class', 'remove');
+    removeBtn.textContent = "R";
+
     bookDiv.appendChild(title);
     bookDiv.appendChild(author);
     shelf.appendChild(bookDiv);
@@ -64,6 +72,7 @@ function addBookToShelf(book) {
     let bookWidth = getWidth(book);
     bookDiv.setAttribute("class", "book");
     bookDiv.setAttribute("style", `background: ${getRandomRGB()}; width: ${bookWidth}px`);
+    bookDiv.setAttribute('data-index-number', book.indexOf(book));
     let title = document.createElement("h3");
     title.setAttribute("class", "title");
     title.textContent = book.title;

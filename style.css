@@ -11,7 +11,7 @@
   align-items: center;
 }
 
-button {
+#newbook {
   padding: 10px;
   font-size: 2rem;
   border: none;
@@ -21,14 +21,14 @@ button {
 }
 
 .shelf {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   grid-column: 1 / 2;
-  justify-content: start;
-  grid-auto-flow: column;
+  justify-content: flex-start;
   background-color: antiquewhite;
   border: 6px solid brown;
+  width: 800px;
   gap: 3px;
-  height: 500px;
 }
 
 .book {
@@ -79,4 +79,9 @@ fieldset {
   display: flex;
   padding: 1rem;
   margin: 1rem;
+}
+
+#submit-form {
+  border: none;
+  padding: 3px;
 }
