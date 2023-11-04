@@ -1,26 +1,31 @@
-const btn = document.querySelector("#newbook");
+const newBookBtn = document.querySelector("#newbook");
 const shelf = document.querySelector(".shelf");
 const bookForm = document.querySelector("#book-form");
 
-btn.addEventListener('click', () => {
-  if (bookForm.getAttribute('hidden') === '') {
-    showForm();
-  } else {
-    resetForm();
-  }
-});
+function newBookEvent() {
+  newBookBtn.addEventListener('click', () => {
+    if (bookForm.getAttribute('hidden') === '') {
+      showForm();
+    } else {
+      resetForm();
+    }
+  });
+}
 
-bookForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  let title = e.target.book_title.value;
-  let author = e.target.book_author.value;
-  let pages = e.target.book_pages.value;
-  let read = e.target.have_read.value;
+function submitFormEvent() {
+  bookForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let title = e.target.book_title.value;
+    let author = e.target.book_author.value;
+    let pages = e.target.book_pages.value;
+    let read = e.target.have_read.value;
 
-  addBookToLibrary(title, author, pages, read);
-  addBooksToShelf();
+    addBookToLibrary(title, author, pages, read);
+    addBooksToShelf();
 
-});
+  });
+}
+
 
 let books = [];
 
@@ -87,6 +92,11 @@ function showForm() {
 function resetForm() {
   bookForm.reset();
 }
+
+function removeBook(book) {
+  books.splice(book.indexNumber);
+}
+
 
 addBookToLibrary("Republic", "Plato", "412", "read");
 addBookToLibrary("Politics", "Aristotle", "375", "read");
