@@ -42,9 +42,7 @@ function addBooksToShelf() {
   shelf.replaceChildren();
   for (let book of books) {
     let bookDiv = document.createElement("div");
-    let bookWidth = getWidth(book);
     bookDiv.setAttribute("class", "book");
-    bookDiv.setAttribute("style", `background: ${getRandomRGB()}; width: ${bookWidth}px`);
     bookDiv.setAttribute('data-index-number', books.indexOf(book));
 
     let title = document.createElement("h3");
@@ -53,17 +51,21 @@ function addBooksToShelf() {
 
     let author = document.createElement("h5");
     author.setAttribute("class", "author");
-    author.setAttribute("style", `width: ${bookWidth}px`);
     author.textContent = book.author;
 
     let removeBtn = document.createElement('button');
     removeBtn.setAttribute('class', 'remove');
-    removeBtn.textContent = "R";
+    removeBtn.textContent = "Remove";
     removeBookEvent(removeBtn);
+
+    let readBtn = document.createElement('button');
+    readBtn.setAttribute('class', 'read-btn');
+    readBtn.textContent = "Read?";
 
     bookDiv.appendChild(title);
     bookDiv.appendChild(author);
     bookDiv.appendChild(removeBtn);
+    bookDiv.appendChild(readBtn);
     shelf.appendChild(bookDiv);
   }
 }
@@ -73,26 +75,16 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
+
+  this.readBook = function() {
+    console.log("Read!");
+  }
 }
 
 function addBookToLibrary(title, author, pages, read) {
   let book = new Book(title, author, pages, read);
   books.push(book);
 }
-
-function getRandomRGB() {
-  let red = Math.floor(Math.random() * 256);
-  let green = Math.floor(Math.random() * 256);
-  let blue = Math.floor(Math.random() * 256);
-
-  return `rgb(${red}, ${green}, ${blue})`;
-}
-
-function getWidth(book) {
-  let pages = book.pages;
-  return String(Math.floor((pages / 100) * 15));
-}
-
 
 function showForm() {
   let bookForm = document.querySelector("#book-form");
