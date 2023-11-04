@@ -28,7 +28,8 @@ function submitFormEvent() {
 
 function removeBookEvent(btn) {
   btn.addEventListener('click', (e) => {
-    console.log(e.target.parentElement.dataset.indexNumber);
+    let i = e.target.parentElement.dataset.indexNumber;
+    removeBook(i);
   });
 }
 
@@ -101,8 +102,8 @@ function resetForm() {
   bookForm.reset();
 }
 
-function removeBook(book) {
-  books.splice(book.indexNumber);
+function removeBook(i) {
+  books.splice(i);
 }
 
 
