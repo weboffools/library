@@ -33,30 +33,26 @@
 
 .book {
   display: grid;
+  grid-template-rows: 2fr 1fr 1fr 1fr;
   font-size: 1.5rem;
-  align-items: center;
+  align-items: start;
   color: black;
-  background-color: #2a3;
+  background-color:cornflowerblue; 
   padding: 2px;
   height: 250px;
 }
 
 .book h3 {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
+  justify-self: center;
   font-size: 1.25rem;
   writing-mode: vertical-rl;
 }
 
 .book h5 {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  flex-wrap: wrap;
+  justify-self: center;
+  align-self: center;
   font-size: 0.75rem;
-  writing-mode: vertical-rl;
+  writing-mode: sideways-lr;
 }
 
 .sidebar {

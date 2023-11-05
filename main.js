@@ -34,7 +34,13 @@ function removeBookEvent(btn) {
   });
 }
 
-
+function readBookEvent(btn) {
+  btn.addEventListener('click', (e) => {
+    let i = e.target.parentElement.dataset.indexNumber;
+    let book = e.target.parentElement;
+    books[i].readBook(book, i);
+  });
+}
 
 let books = [];
 
@@ -61,6 +67,7 @@ function addBooksToShelf() {
     let readBtn = document.createElement('button');
     readBtn.setAttribute('class', 'read-btn');
     readBtn.textContent = "Read?";
+    readBookEvent(readBtn);
 
     bookDiv.appendChild(title);
     bookDiv.appendChild(author);
@@ -76,8 +83,16 @@ function Book(title, author, pages, read) {
   this.pages = pages;
   this.read = read;
 
-  this.readBook = function() {
-    console.log("Read!");
+  this.readBook = function(book, i) {
+    let currBook = books[i];
+    let btn = book.lastChild;
+    if (currBook.read === 'read') {
+      currBook.read = 'not_read';
+      btn.setAttribute('style', 'background: red; border: none;');
+    } else {
+      currBook.read = 'read';
+      btn.setAttribute('style', 'background: green; border: none;');
+    }
   }
 }
 
@@ -109,4 +124,5 @@ addBookToLibrary("The Prince", "Machiavelli", "150", "read");
 addBooksToShelf();
 newBookEvent();
 submitFormEvent();
+
 
